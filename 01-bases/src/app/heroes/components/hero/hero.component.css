@@ -1,0 +1,13 @@
+h1{
+    font-size: 3em;
+}
+
+td{
+    font-weight: bold;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+}
+dd{
+    font-size: 32px;
+}
