@@ -1,0 +1,14 @@
+<h1>Listado</h1>
+<ul class="list-group">
+  <li
+    *ngFor="let character of characterList; let i = index; let isLast = last; let isFirst = first"
+    class="list-group-item" [ngClass]="{ 'list-group-item-primary': isFirst }"
+    style="display: flex; justify-content: space-between; align-items: center;"
+  >
+    <div>
+      <span style="font-weight: bold;">{{i}}</span>
+      {{character.name}} {{character.lastName}} - {{character.age}}
+    </div>
+    <button class="btn btn-danger" (click)="deleteCharacter(character.id!)">Eliminar</button>
+  </li>
+</ul>
