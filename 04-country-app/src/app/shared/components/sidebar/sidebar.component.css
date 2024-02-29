@@ -1,0 +1,32 @@
+.title{
+  background: #0b2538;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .5s;
+}
+.title:hover{
+  height: 140px;
+  cursor: default;
+}
+
+.title:hover img{
+  filter: brightness(1);
+  transform: scale(.8);
+}
+
+.title h2{
+  position: absolute;
+  z-index: 10;
+}
+
+.title img{
+  position:static;
+  z-index: 5;
+  filter: brightness(.5);
+  transition: all .5s;
+}

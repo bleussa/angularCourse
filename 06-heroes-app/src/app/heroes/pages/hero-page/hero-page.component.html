@@ -1,0 +1,39 @@
+<ng-template #loading style="height: 100vh !important;">
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+
+<div
+  *ngIf="hero; else loading"
+  class="grid"
+>
+
+
+
+  <mat-card class="col-12 sm:col-6 md:col-3">
+    <img [src]="hero | imageUrl" [alt]="hero.superhero" mat-card-image>
+
+    <mat-card-header>
+      <mat-card-title>{{ hero.superhero }}</mat-card-title>
+      <mat-card-subtitle>{{ hero.alter_ego }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="col-12 sm:col-6 md:col-9">
+    <mat-card-header>
+      <mat-card-title>Información</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item><strong>Primera aparicion:</strong> {{ hero.first_appearance }}</mat-list-item>
+        <mat-list-item><strong>Publicador:</strong> {{ hero.publisher }}</mat-list-item>
+      </mat-list>
+      <button mat-button color="primary" (click)="goBack()">Volver atrás</button>
+    </mat-card-content>
+  </mat-card>
+
+
+</div>

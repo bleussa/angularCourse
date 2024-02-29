@@ -4,11 +4,12 @@
 <div class="row">
   <div class="col">
     <!-- SearchBar -->
-    <shared-searchbar searchTerm="Buscar por capital..."></shared-searchbar>
+    <shared-searchbar searchTerm="Buscar por capital..." (searchEnter)="searchByCapital($event)"></shared-searchbar>
   </div>
 </div>
 <div class="row">
   <div class="col">
     <!-- ResultTable -->
+    <countries-country-table [countries]="countries"></countries-country-table>
   </div>
 </div>

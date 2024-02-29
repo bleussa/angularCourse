@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'shared-searchbar',
@@ -10,5 +10,12 @@ export class SearchbarComponent {
 
   @Input()
   public searchTerm : string = '';
+
+  @Output()
+  public searchEnter = new EventEmitter<string>();
+
+  public execEvent(value: string){
+    this.searchEnter.emit(value);
+  }
 
 }

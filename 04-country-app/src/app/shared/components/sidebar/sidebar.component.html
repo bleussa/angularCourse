@@ -1,48 +1,32 @@
-<h2>🌎 CountryApp</h2>
-<hr>
-<ul class="list-group">
-  <!--
+<div>
+  <div class="title">
+    <h2>CountryX</h2>
+    <img src="assets/globe.png" alt="">
+  </div>
+  <ul class="list-group mt-3">
     <li
-    class="list-group-item"
-    [routerLink]="'home'"
-    routerLinkActive="active"
-  >
-    Home
-  </li>
-  <li
-    class="list-group-item"
-    [routerLink]="'about'"
-    routerLinkActive="active"
-  >
-    About
-  </li>
-  <li
-    class="list-group-item"
-    [routerLink]="'contact'"
-    routerLinkActive="active"
-  >
-    Contact
-  </li>
-   -->
-  <li
-    class="list-group-item"
-    [routerLink]="'countries/by-capital'"
-    routerLinkActive="active"
-  >
-    By capital
-  </li>
-  <li
-    class="list-group-item"
-    [routerLink]="'countries/by-country'"
-    routerLinkActive="active"
-  >
-    By country
-  </li>
-  <li
-    class="list-group-item"
-    [routerLink]="'countries/by-region'"
-    routerLinkActive="active"
-  >
-    By region
-  </li>
-</ul>
+      class="list-group-item"
+      style="cursor: pointer;"
+      [routerLink]="'countries/by-capital'"
+      routerLinkActive="active"
+    >
+      Search by capital
+    </li>
+    <li
+      class="list-group-item"
+      style="cursor: pointer;"
+      [routerLink]="'countries/by-country'"
+      routerLinkActive="active"
+    >
+      Search by country
+    </li>
+    <li
+      class="list-group-item"
+      style="cursor: pointer;"
+      [routerLink]="'countries/by-region'"
+      routerLinkActive="active"
+    >
+      Search by region
+    </li>
+  </ul>
+</div>

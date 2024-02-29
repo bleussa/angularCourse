@@ -1,1 +1,15 @@
-<p>by-country-page works!</p>
+<h2>By country</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- SearchBar -->
+    <shared-searchbar searchTerm="Buscar por pais..." (searchEnter)="searchByCountry($event)"></shared-searchbar>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- ResultTable -->
+    <countries-country-table [countries]="countries"></countries-country-table>
+  </div>
+</div>

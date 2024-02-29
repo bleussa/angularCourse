@@ -1,1 +1,49 @@
-<p>country-page works!</p>
+<ng-template #loading>
+  <div class="alert alert-warning">
+    Cargando información. Espere por favor...
+  </div>
+</ng-template>
+
+<div *ngIf="country; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>{{country.name.common}}</h2>
+      <hr>
+      <div class="row">
+        <div class="col-4">
+          <h3>Bandera</h3>
+          <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+        </div>
+        <div class="col">
+          <h3>Información</h3>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Nombre Oficial:</strong>
+              {{country.name.official}}
+            </li>
+            <li class="list-group-item">
+              <strong>Población:</strong>
+              {{country.population | number}}
+            </li>
+            <li class="list-group-item">
+              <strong>Codigo Alpha3:</strong>
+              {{country.cca3}}
+            </li>
+            <li class="list-group-item">
+              <strong>Región:</strong>
+              {{country.region}}
+            </li>
+            <li class="list-group-item">
+              <strong>Coordenadas:</strong> <br>
+              Latitud: {{country.latlng[0]}} <br>
+              Longuitud: {{country.latlng[1]}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <countries-country-slider country="{{country.name.common}}"></countries-country-slider>
+    </div>
+  </div>
+</div>
