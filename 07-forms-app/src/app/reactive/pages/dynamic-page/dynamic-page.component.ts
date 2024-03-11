@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from '../../../shared/services/validators.service';
 
 @Component({
   templateUrl: './dynamic-page.component.html',
@@ -18,44 +19,23 @@ export class DynamicPageComponent {
 
   constructor(
     private formBuilder : FormBuilder,
+    private validatorsService : ValidatorsService,
   ){}
-
-
 
   get favoriteGames(){
     return this.myForm.controls['favoriteGames'] as FormArray;
   }
 
   public isValidField(field : string) : boolean | null{
-    return this.myForm.controls[field].errors
-      && this.myForm.controls[field].touched;
+    return this.validatorsService.isValidField(this.myForm, field);
   }
 
   public isValidFieldInArray(formArray : FormArray, index : number ) : boolean | null {
-    return formArray.controls[index].errors
-      && formArray.controls[index].touched;
+    return this.validatorsService.isValidFieldInArray(formArray, index);
   }
 
   public getFieldError(field : string) : string | null{
-
-    if ( !this.myForm.controls[field] ) return null;
-
-    const errors = this.myForm.controls[field].errors || {};
-
-    for (const key of Object.keys(errors)) {
-      switch( key ){
-        case 'required':
-          return 'Este campo es requerido!';
-
-        case 'minlength':
-          return `Este campo tiene un minimo de ${ errors['minlength'].requiredLength } caracteres!`;
-
-
-      }
-    }
-
-    return null;
-
+    return this.validatorsService.getFieldError(this.myForm, field);
   }
 
   public onSubmit() : void{
