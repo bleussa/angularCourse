@@ -1,1 +1,17 @@
-<p>markers-page works!</p>
+<div id="map" #map></div>
+
+<button class="btn btn-primary" (click)="createMarker()">
+  + Agregar nuevo marcador
+</button>
+
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    *ngFor="let marker of markers; let i = index"
+    (dblclick)="deleteMarker(i)"
+    (click)="flyToMarker(marker.marker)"
+  >
+    <span [ngStyle]="{ background: marker.color }"></span>
+    Marker #{{ i + 1 + " " + marker.marker.getLngLat() }}
+  </li>
+</ul>
